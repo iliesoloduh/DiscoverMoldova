@@ -1,0 +1,78 @@
+<div class="container">
+    <div class="content">
+        <mat-card>
+            <mat-card-title>Resort Details</mat-card-title>
+            <mat-card-content>
+                <form [formGroup]="resortForm" (ngSubmit)="onSubmit()">
+                    <p>
+                        <mat-form-field>
+                            <input type="text" matInput placeholder="Name" formControlName="name">
+                            <mat-error *ngIf="'resortForm.name.invalid'"> {{ getNameErrorMessage() }} </mat-error>
+                        </mat-form-field>
+                    </p>
+                    <p>
+                        <mat-form-field>
+                            <input type="text" matInput placeholder="Address" formControlName="address">
+                            <mat-error *ngIf="'resortForm.address.invalid'"> {{ getAddressErrorMessage() }} </mat-error>
+                        </mat-form-field>
+                    </p>
+                    <p>
+                        <mat-form-field>
+                            <mat-label>Email</mat-label>
+                            <input type="text" matInput placeholder="pat@example.com" formControlName="email">
+                            <mat-error *ngIf="'resortForm.email.invalid'">{{ getEmailErrorMessage() }}</mat-error>
+                        </mat-form-field>
+                    </p>
+                    <p>
+                        <mat-form-field>
+                            <input type="text" matInput placeholder="Price" formControlName="price">
+                            <mat-error *ngIf="'resortForm.price.invalid'"> {{ getPriceErrorMessage() }} </mat-error>
+                        </mat-form-field>
+                    </p>
+                    <p>
+                        <mat-form-field>
+                            <input type="text" matInput placeholder="Capacity" formControlName="capacity">
+                            <mat-error *ngIf="'resortForm.capacity.invalid'"> {{ getCapacityErrorMessage() }} </mat-error>
+                        </mat-form-field>
+                    </p>
+                    <p>
+                        <mat-form-field>
+                            <input type="text" matInput placeholder="Phone" formControlName="phone">
+                            <mat-error *ngIf="'resortForm.phone.invalid'"> {{ getPhoneErrorMessage() }} </mat-error>
+                        </mat-form-field>
+                    </p>
+                    <p>
+                        <mat-form-field>
+                            <textarea matInput placeholder="Description" formControlName="description"> </textarea>
+                            <mat-error *ngIf="'resortForm.description.invalid'"> {{ getDescriptionErrorMessage() }} </mat-error>
+                        </mat-form-field>
+                    </p>
+                    <p>
+                        <mat-form-field>
+                            <mat-label>District</mat-label>
+                            <mat-select formControlName="district">
+                              <mat-option>None</mat-option>
+                              <mat-option *ngFor="let district of districts" [value]="district">{{district}}</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="'resortForm.district.invalid'"> {{ getDistrictErrorMessage() }} </mat-error>
+                        </mat-form-field>
+                    </p>
+                    <p>
+                        <mat-form-field>
+                            <mat-label>Location</mat-label>
+                            <mat-select formControlName="location">
+                              <mat-option>None</mat-option>
+                              <mat-option *ngFor="let location of locations" [value]="location">{{location}}</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="'resortForm.location.invalid'"> {{ getLocationErrorMessage() }} </mat-error>
+                        </mat-form-field>
+                    </p>
+                    <div class="button">
+                        <button type="submit" mat-raised-button color="primary">Add Resort</button>
+                    </div>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+

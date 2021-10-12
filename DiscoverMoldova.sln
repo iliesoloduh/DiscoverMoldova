@@ -1,0 +1,86 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiscoverMoldova.API", "DiscoverMoldova\DiscoverMoldova.API.csproj", "{705916D9-594A-41E0-85E4-12485AE2141F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiscoverMoldova.Domain", "DiscoverMoldova.Domain\DiscoverMoldova.Domain.csproj", "{EAD08EFF-59F1-4B72-ABE4-8949567DE05C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiscoverMoldova.Infrastructure", "DiscoverMoldova.Infrastructure\DiscoverMoldova.Infrastructure.csproj", "{D5837F1C-0FE6-4DAD-93B1-80DB4A38780F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiscoverMoldova.Core", "DiscoverMoldova.Core\DiscoverMoldova.Core.csproj", "{693DEC46-EE4A-46CC-816A-7709AAC1391F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{A9725537-3E42-4732-8CFE-2F90593D207E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiscoverMoldova-UnitTests", "DiscoverMoldova-UnitTests\DiscoverMoldova-UnitTests.csproj", "{6557D07A-D5DF-4DA7-8B5C-9D61D3389E7C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiscoverMoldova-IntegrationTesting", "DiscoverMoldova-IntegrationTesting\DiscoverMoldova-IntegrationTesting.csproj", "{B3B3EF49-06E3-4C78-853F-0718FD45C2C9}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "discover-moldova-UI", "discover-moldova-UI\", "{C909DFB9-555D-4076-933F-ED54F11E99E8}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_57867"
+		Debug.AspNetCompiler.PhysicalPath = "discover-moldova-UI\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_57867\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_57867"
+		Release.AspNetCompiler.PhysicalPath = "discover-moldova-UI\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_57867\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "57867"
+		SlnRelativePath = "discover-moldova-UI\"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{705916D9-594A-41E0-85E4-12485AE2141F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{705916D9-594A-41E0-85E4-12485AE2141F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{705916D9-594A-41E0-85E4-12485AE2141F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{705916D9-594A-41E0-85E4-12485AE2141F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAD08EFF-59F1-4B72-ABE4-8949567DE05C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAD08EFF-59F1-4B72-ABE4-8949567DE05C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAD08EFF-59F1-4B72-ABE4-8949567DE05C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAD08EFF-59F1-4B72-ABE4-8949567DE05C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5837F1C-0FE6-4DAD-93B1-80DB4A38780F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5837F1C-0FE6-4DAD-93B1-80DB4A38780F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5837F1C-0FE6-4DAD-93B1-80DB4A38780F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5837F1C-0FE6-4DAD-93B1-80DB4A38780F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{693DEC46-EE4A-46CC-816A-7709AAC1391F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{693DEC46-EE4A-46CC-816A-7709AAC1391F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{693DEC46-EE4A-46CC-816A-7709AAC1391F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{693DEC46-EE4A-46CC-816A-7709AAC1391F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6557D07A-D5DF-4DA7-8B5C-9D61D3389E7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6557D07A-D5DF-4DA7-8B5C-9D61D3389E7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6557D07A-D5DF-4DA7-8B5C-9D61D3389E7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6557D07A-D5DF-4DA7-8B5C-9D61D3389E7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3B3EF49-06E3-4C78-853F-0718FD45C2C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3B3EF49-06E3-4C78-853F-0718FD45C2C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3B3EF49-06E3-4C78-853F-0718FD45C2C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3B3EF49-06E3-4C78-853F-0718FD45C2C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C909DFB9-555D-4076-933F-ED54F11E99E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C909DFB9-555D-4076-933F-ED54F11E99E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C909DFB9-555D-4076-933F-ED54F11E99E8}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{C909DFB9-555D-4076-933F-ED54F11E99E8}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6557D07A-D5DF-4DA7-8B5C-9D61D3389E7C} = {A9725537-3E42-4732-8CFE-2F90593D207E}
+		{B3B3EF49-06E3-4C78-853F-0718FD45C2C9} = {A9725537-3E42-4732-8CFE-2F90593D207E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4DF42196-0EEB-47BC-AED1-7A4BBB0E9500}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="content">
+        <div class="contact-info">
+            <p class="title">{{resort.name}}</p>
+            <div class="address">
+                <p>
+                    <img class="icons" [src]="locationIcon"/>
+                    {{resort.address}}, {{resort.district}}, {{resort.location}}
+                </p>
+                <mat-divider [vertical]="true" class="divider"></mat-divider>
+                <p>
+                    <img class="icons" [src]="phoneIcon"/>
+                    {{resort.phone}}
+                </p>
+                <mat-divider [vertical]="true" class="divider"></mat-divider>
+                <p>
+                    <img class="icons" [src]="emailIcon"/>
+                    {{resort.email}}
+                </p>
+                <mat-divider [vertical]="true" class="divider"></mat-divider>
+                <p>
+                    <img class="icons" [src]="priceIcon"/>
+                    {{resort.price}} lei
+                </p>
+                <mat-divider [vertical]="true" class="divider"></mat-divider>
+                <p>
+                    <img class="icons" [src]="capacityIcon"/>
+                    {{resort.capacity}} people
+                </p>
+            </div>
+        </div>
+        <div class="slider">
+            <ng-image-slider #nav
+                [images]="imageObject"
+                [infinite]="false"
+                [autoSlide]="1"
+                [imageSize]="{width: '25%', height: 200}"
+                slideImage="1"></ng-image-slider>
+        </div>
+        <div class="book">
+            <mat-form-field class="item" appearance="fill">
+                <mat-label>Number of persons ?</mat-label>
+                <input matInput>
+            </mat-form-field>
+        
+            <mat-form-field class="item" appearance="fill">
+                <mat-label>Check In</mat-label>
+                <input matInput [matDatepicker]="picker1">
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+        
+            <mat-form-field class="item" appearance="fill">
+                <mat-label>Check Out</mat-label>
+                <input matInput [matDatepicker]="picker2">
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+        
+            <button mat-raised-button color="primary" class="book-button">BOOK NOW</button>
+        </div>
+        <div class="details">
+            <div class="facilities">
+                <div *ngFor="let icon of facilityIcons">
+                    <p><img class="icons" [src]="icon?.image"/>  {{icon?.text}}</p>
+               </div>
+            </div>
+            <div class="description">
+                <p>{{resort.description}}</p>
+            </div>
+        </div>
+    </div>
+</div>

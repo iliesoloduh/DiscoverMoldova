@@ -1,0 +1,87 @@
+.resort-container {
+  display: flex;
+  flex-flow: row nowrap;
+  height: 258px;
+  padding: 0;
+  margin: 6px 0 12px 0;
+  background-color: #fff;
+  border-radius: 2px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #e0e0e0;
+}
+
+.resort-image {
+  width: 275px;
+  height: 258px;
+  padding-right: 12px;
+}
+
+img {
+  width: 275px;
+  height: 258px;
+}
+
+.resort-content {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.resort-divider {
+  border-right-width: 1px;
+  border-right-style: solid;
+  height: 90%;
+  margin-top: 20px;
+}
+
+.resort-title {
+  flex-direction: row-reverse;
+  padding-top: 10px;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.resort-details {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.resort-details p {
+  font-weight: 100;
+}
+
+.resort-details .title {
+  font-weight: 500 !important;
+}
+
+.prices {
+  flex-flow: column nowrap;
+  white-space: nowrap;
+  margin-right: 40px;
+}
+
+.activities {
+  flex-flow: column nowrap;
+  margin: 0 40px 0 25px;
+}
+
+.activity-list {
+  font-weight: 100;
+}
+
+.chip-container {
+  display: flex;
+  flex-flow: column nowrap;
+  white-space: nowrap;
+}
+
+.facilities {
+  flex-flow: column nowrap;
+  white-space: nowrap;
+  margin: 0 40px 0 25px;
+}
+
+.icons {
+  width: 18px;
+  height: 18px;
+}

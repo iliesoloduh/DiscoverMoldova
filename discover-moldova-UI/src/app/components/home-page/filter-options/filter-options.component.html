@@ -1,0 +1,48 @@
+<div class="container">
+
+    <p>Facilities</p>
+    <mat-selection-list #facility class="list-container">
+        <mat-list-option *ngFor="let facility of facilities" class="list-item">
+          {{facility}}
+        </mat-list-option>
+      </mat-selection-list>    
+    <mat-divider class="divider"></mat-divider>
+
+    <p>Activities</p>       
+    <mat-selection-list #activity class="list-container">
+        <mat-list-option *ngFor="let activity of activities" class="list-item">
+          {{activity}}
+        </mat-list-option>
+      </mat-selection-list>    
+    <mat-divider class="divider"></mat-divider> 
+    
+    <p>Price</p>
+    <div class="content">
+          <mat-slider
+              class="slider"
+              [max]="max"
+              [min]="min"
+              [step]="step"
+              [thumbLabel]="thumbLabel"
+              [(ngModel)]="value"
+              aria-labelledby="name-label">
+        </mat-slider>
+        <div class="label-horizontal">
+            <label class="name-label">Max Price</label>
+            <label class="value-label">{{value}}</label>
+        </div>
+    </div>
+    <mat-divider class="divider"></mat-divider>
+
+    <p>Capacity</p>
+    <div class="capacity-container">
+        <mat-form-field class="item" appearance="fill">
+            <mat-label>Min</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field class="item" appearance="fill">
+            <mat-label>Max</mat-label>
+            <input matInput>
+        </mat-form-field>
+    </div>
+</div>

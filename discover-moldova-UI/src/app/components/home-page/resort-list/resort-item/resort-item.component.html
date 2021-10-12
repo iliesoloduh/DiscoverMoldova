@@ -1,0 +1,41 @@
+<div class="resort-container">
+
+    <div class="resort-image">
+        <img class="image" [src]="resort?.image"/>
+    </div>
+
+    <div class="resort-content">
+        <div class="resort-title">
+            {{resort?.title}}
+        </div>
+
+        <div class="resort-details">
+            <div class="prices">
+                <p class="title">Prices starts at:</p>
+                <p>{{resort?.price}}</p>
+                <p class="title">Capacity:</p>
+                <p>{{resort?.capacity}}</p>
+            </div>
+            <mat-divider [vertical]="true" class="resort-divider"></mat-divider>
+
+            <div class="activities">
+                <p class="title">Activities</p>
+                <mat-chip-list>
+                    <div class="chip-container">
+                        <mat-chip *ngFor="let activity of activities" selected color="primary" class="activity-list">
+                        {{activity.act}}
+                        </mat-chip>
+                    </div>
+                </mat-chip-list>
+            </div>
+            <mat-divider [vertical]="true" class="resort-divider"></mat-divider>
+            
+            <div class="facilities">
+                <p class="title">Facilities</p>
+                <div *ngFor="let icon of icons">
+                     <p><img class="icons" [src]="icon?.image"/>  {{icon?.text}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

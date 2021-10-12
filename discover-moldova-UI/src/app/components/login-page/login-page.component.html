@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="content">
+        <mat-card>
+            <mat-card-title>Login</mat-card-title>
+            <mat-card-content>
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <p>
+                        <mat-form-field>
+                            <input type="text" matInput placeholder="Username" formControlName="username">
+                            <mat-error *ngIf="'loginForm.username.valid'"> {{ getUsernameErrorMessage() }} </mat-error>
+                        </mat-form-field>
+                    </p>
+                    <p>
+                        <!-- <mat-form-field>
+                            <input type="password" matInput placeholder="Password" formControlName="password">
+                            <mat-error *ngIf="'loginForm.password.valid'"> {{ getPasswordErrorMessage() }} </mat-error>
+                        </mat-form-field> -->
+
+                        <mat-form-field>
+                            <mat-label>Enter your password</mat-label>
+                            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                            <mat-error *ngIf="'loginForm.password.valid'"> {{ getPasswordErrorMessage() }} </mat-error>
+                        </mat-form-field>
+                    </p>
+                    <mat-error *ngIf="loginError !== ''"> {{ loginError }} </mat-error>
+                    <div class="button">
+                        <button type="submit" mat-raised-button color="primary">Login</button>
+                    </div>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

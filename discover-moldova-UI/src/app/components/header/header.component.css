@@ -1,0 +1,26 @@
+.header {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    font-family: Wire One;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 55px;
+    color: white;
+    background: #2f2f2f;
+}
+
+.header p {
+    flex-grow: 8;
+    white-space: nowrap;
+    margin: 0;
+    padding: 20px;
+}
+
+.header button {
+    background-color: #2f2f2f;
+    font-family: Wire One;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+}

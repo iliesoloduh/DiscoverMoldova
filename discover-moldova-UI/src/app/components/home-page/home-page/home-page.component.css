@@ -1,0 +1,29 @@
+.container {
+    background: #e0e0e0;
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1 1 auto;
+}
+
+.search-bar {
+    display: flex;
+    flex-flow: row nowrap;
+    flex: 0 0 60px;
+    justify-content: center;
+}
+
+.center {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.filter-options {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.resort-list {
+    display: flex;
+    flex-flow: column;
+    margin-right: 40px;
+}
