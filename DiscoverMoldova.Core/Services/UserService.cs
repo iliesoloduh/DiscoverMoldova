@@ -153,11 +153,13 @@ namespace DiscoverMoldova.Core.Services
 
             var tokenHandler = new JwtSecurityTokenHandler();
             var encodedToken = tokenHandler.WriteToken(token);
+            var tokenExpireDate = token.ValidTo;
 
             var userDto = _mapper.Map<UserDto>(user);
             var response = new LoginUserResponseDto()
             {
                 Token = encodedToken,
+                TokenExpireDate = tokenExpireDate,
                 UserDto = userDto
             };
 

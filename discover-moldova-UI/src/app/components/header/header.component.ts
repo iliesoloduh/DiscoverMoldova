@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,12 +8,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  isLoggedIn: boolean = localStorage.getItem('token') !== null;
+  constructor(private router: Router) {
 
-  // metoda logout, in ea sterg token si user din localstorage, o  apelez la apelarea butonului logout
-  constructor() { }
-
+  }
+  
   ngOnInit(): void {
   }
 
+  isLoggedIn(): boolean {
+    // var time =JSON.parse(localStorage.getItem('tokenExpireDate') ?? '');
+    // var dateTime = new Date(time ?? '');
+    // var curDate = new Date();
+  //  localStorage.clear();
+
+    if (localStorage.getItem('token') === null){
+      return false;
+    }
+
+    // if (dateTime < curDate) {
+    //   this.router.navigate(['/login']);
+    //   return false;
+    // }
+    
+    return true;
+  }
+
+  logout(){
+    localStorage.clear();
+    this.router.navigate(['/home']);
+  }
 }

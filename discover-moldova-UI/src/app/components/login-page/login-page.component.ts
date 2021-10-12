@@ -1,4 +1,4 @@
-import { Output, EventEmitter, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginResponseViewModel } from 'src/app/models/login-user-response.model';
@@ -31,6 +31,7 @@ export class LoginPageComponent implements OnInit {
       .subscribe(
         (response:LoginResponseViewModel) => {
           localStorage.setItem('token', response.token);
+          //localStorage.setItem('tokenExpireDate', JSON.stringify(response.tokenExpireDate));
           localStorage.setItem('user', JSON.stringify(response.user));
           this.router.navigate(['/home']);
         },

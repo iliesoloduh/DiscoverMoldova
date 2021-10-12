@@ -1,7 +1,7 @@
 <div class="header">
-    <p>DISCOVER MOLDOVA</p>
-    <button mat-button *ngIf="!isLoggedIn">Log in</button>
-    <button mat-button *ngIf="!isLoggedIn">Sign up</button>
-    <button mat-button *ngIf="isLoggedIn">Register resort</button>
-    <button mat-button *ngIf="isLoggedIn">Log out</button>
+    <p><span routerLink="/home">DISCOVER MOLDOVA</span></p>
+    <button mat-button *ngIf="!isLoggedIn()" routerLink="/login">Log in</button>
+    <button mat-button *ngIf="!isLoggedIn()" routerLink="/signup">Sign up</button>
+    <button mat-button *ngIf="isLoggedIn()">Register resort</button>
+    <button mat-button *ngIf="isLoggedIn()" (click)=logout()>Log out</button>
 </div>
