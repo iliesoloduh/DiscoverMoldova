@@ -15,6 +15,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [],
@@ -35,7 +36,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatPaginatorModule,
     ReactiveFormsModule,
     MatIconModule,
-    MatSelectModule
+    MatSelectModule,
+    MatGridListModule
   ],
   exports: [
     CommonModule,
@@ -54,7 +56,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatPaginatorModule,
     ReactiveFormsModule,
     MatIconModule,
-    MatSelectModule
+    MatSelectModule,
+    MatGridListModule
   ]
 })
 export class MaterialModule { }

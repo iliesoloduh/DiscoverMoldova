@@ -33,7 +33,7 @@ namespace DiscoverMoldova.Core.Services
             return facilitiesDto;
         }
 
-        public async Task<List<FacilityDto>> GetFacilitiesByResortId(long id)
+        public async Task<List<FacilityDto>> GetFacilitiesByResortIdAsync(long id)
         {
             List<Facility> facilities = await _resortFacilityRepository.GetAll().Where(x => x.ResortId == id).Select(x => x.Facility).ToListAsync();
 

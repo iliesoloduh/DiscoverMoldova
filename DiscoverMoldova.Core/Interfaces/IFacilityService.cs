@@ -9,6 +9,6 @@ namespace DiscoverMoldova.Core.Interfaces
     public interface IFacilityService
     {
         List<FacilityDto> GetAllFacilities();
-        Task<List<FacilityDto>> GetFacilitiesByResortId(long id);
+        Task<List<FacilityDto>> GetFacilitiesByResortIdAsync(long id);
     }
 }

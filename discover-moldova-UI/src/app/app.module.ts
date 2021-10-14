@@ -14,6 +14,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
+import { UserPageComponent } from './components/user-page/user-page.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { LoginPageComponent } from './components/login-page/login-page.component
     HeaderComponent,
     FooterComponent,
     RegisterPageComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    UserPageComponent
   ],
   imports: [
     BrowserModule,

@@ -5,14 +5,45 @@
     padding: 40px;
 }
 
-.mat-form-field {
-    width: 100%;
-    min-width: 500px;
+.content {
+    display: flex;
+    width: 540px;
 }
 
-mat-card-title, mat-card-content {
+mat-card {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+mat-card-title {
     display: flex;
     justify-content: center;
+    padding: 10px;
+}
+
+mat-card-content {
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 0 10px 10px 10px;
+}
+
+.row {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+
+.column {
+    padding-top: 10px;
+}
+
+.row mat-form-field {
+    min-width: 240px;
+}
+
+.column mat-form-field {
+    min-width: 500px;
 }
 
 .button {

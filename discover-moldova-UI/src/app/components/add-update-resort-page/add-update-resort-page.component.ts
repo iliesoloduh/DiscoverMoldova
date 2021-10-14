@@ -27,7 +27,7 @@ export class AddUpdateResortPageComponent implements OnInit {
 
   districts = ['Chișinău', 'Bălți', 'Briceni', 'Cricova', 'Criuleni', 'Drochia', 'Fălești', 'Giurgiulești', 'Hîncești', 'Ialoveni', 'Nisporeni', 'Rezina', 'Strășeni', 'Telenești'];
   locations = ['Bucovăț', 'Ciorești', 'Cruzești', 'Dănceni', 'Etulia', 'Fetești', 'Frăsinești', 'Frumoasa', 'Gordinești', 'Gura Bîcului', 'Horești', 'Hulboaca', 'Iurceni', 'Marinici', 'Rassvet'];
-
+  facilities = ['Wifi', 'BBQ', 'Swimming pool', 'Sauna', 'Soccer field', 'Volleyball field', 'Basketball field', 'Restaurant', 'Fridge', 'TV', 'Billiard room', 'Parking'];
   
 
   onSubmit() {

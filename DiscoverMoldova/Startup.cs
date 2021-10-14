@@ -45,6 +45,7 @@ namespace DiscoverMoldova
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IResortService, ResortService>();
             services.AddScoped<ILocationService, LocationService>();
+            services.AddScoped<IFacilityService, FacilityService>();
             services.AddAutoMapper(typeof(CoreAssemblyMarker));
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

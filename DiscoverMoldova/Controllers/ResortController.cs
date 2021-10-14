@@ -67,7 +67,7 @@ namespace DiscoverMoldova.API.Controllers
         [HttpGet("{id}/facilities")]
         public async Task<IActionResult> GetResortFacilities(long id)
         {
-            var facilities = await _facilityService.GetFacilitiesByResortId(id);
+            var facilities = await _facilityService.GetFacilitiesByResortIdAsync(id);
             return Ok(facilities);
         }
     }

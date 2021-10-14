@@ -27,8 +27,7 @@ namespace DiscoverMoldova_UnitTests
                     FirstName = "Soloduh",
                     LastName = "Ilie",
                     Email = "soloduh@gmail.com",
-                    UserName = "ilie1234",
-                    Password = "12345678"
+                    UserName = "ilie1234"
                 });
 
             _userController = new UserController(mockUserService.Object);
