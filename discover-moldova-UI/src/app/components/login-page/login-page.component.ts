@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoginResponseViewModel } from 'src/app/models/login-user-response.model';
+import { LoginResponseViewModel } from 'src/app/models/user/login-user-response.model';
 import { AuthService } from 'src/app/services/auth-service.service';
 
 @Component({
@@ -32,7 +32,7 @@ export class LoginPageComponent implements OnInit {
         (response:LoginResponseViewModel) => {
           localStorage.setItem('token', response.token);
           //localStorage.setItem('tokenExpireDate', JSON.stringify(response.tokenExpireDate));
-          localStorage.setItem('user', JSON.stringify(response.user));
+          localStorage.setItem('user', JSON.stringify(response.userDto));
           this.router.navigate(['/home']);
         },
         (error) => { this.loginError = error.error; }

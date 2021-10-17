@@ -45,5 +45,11 @@ namespace DiscoverMoldova.Infrastructure.Repositories
         {
             await _dbContext.SaveChangesAsync();
         }
+
+        public async Task AddRangeAsync(T[] entities)
+        {
+            await _dbSet.AddRangeAsync(entities);
+            await SaveAsync();
+        }
     }
 }

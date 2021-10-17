@@ -147,7 +147,7 @@ namespace DiscoverMoldova.Core.Services
                     issuer: "https://localhost:44376/",
                     audience: "http://localhost:4200/",
                     claims: new List<Claim>(),
-                    expires: DateTime.Now.AddMinutes(2),
+                    expires: DateTime.Now.AddHours(12),
                     signingCredentials: credentials
                 );
 

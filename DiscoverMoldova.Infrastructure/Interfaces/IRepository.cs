@@ -10,6 +10,7 @@ namespace DiscoverMoldova.Infrastructure.Interfaces
     public interface IRepository<T> where T: BaseEntity
     {
         Task AddAsync(T entity);
+        Task AddRangeAsync(T[] entities);
         Task DeleteAsync(long id);
         Task<T> GetByIdAsync(long id);
         IQueryable<T> GetAll();

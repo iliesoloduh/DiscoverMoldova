@@ -10,7 +10,7 @@ namespace DiscoverMoldova.API.Controllers
 {
     [Route("api/districts")]
     [ApiController]
-    [Authorize]
+    [AllowAnonymous]
     public class LocationController : ControllerBase
     {
         private readonly ILocationService _locationService;

@@ -4,6 +4,7 @@ import { MaterialModule } from './material/material.module';
 import { HomepageModule } from './components/home-page/homepage/homepage.module';
 import { ResortpageModule } from './components/resort-page/resortpage/resortpage.module';
 import { AddUpdateResortPageModule } from './components/add-update-resort-page/add-update-resort-page/add-update-resort-page.module';
+import { UserPageModule } from './components/user-page/user-page/user-page.module';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
@@ -14,7 +15,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
-import { UserPageComponent } from './components/user-page/user-page.component';
 
 @NgModule({
   declarations: [
@@ -22,8 +22,7 @@ import { UserPageComponent } from './components/user-page/user-page.component';
     HeaderComponent,
     FooterComponent,
     RegisterPageComponent,
-    LoginPageComponent,
-    UserPageComponent
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +31,7 @@ import { UserPageComponent } from './components/user-page/user-page.component';
     HomepageModule,
     ResortpageModule,
     AddUpdateResortPageModule,
+    UserPageModule,
     HttpClientModule,
     RouterModule,
     AppRoutingModule

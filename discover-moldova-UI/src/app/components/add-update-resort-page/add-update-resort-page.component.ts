@@ -1,5 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { _countGroupLabelsBeforeOption } from '@angular/material/core';
+import { Router } from '@angular/router';
+import { FacilityViewModel } from 'src/app/models/facility.model';
+import { DistrictViewModel } from 'src/app/models/location/district.model';
+import { LocationViewModel } from 'src/app/models/location/location.model';
+import { ResortViewModel } from 'src/app/models/resort/resort.model';
+import { FacilityService } from 'src/app/services/facility.service';
+import { LocationService } from 'src/app/services/location.service';
+import { ResortService } from 'src/app/services/resort.service';
 
 @Component({
   selector: 'app-add-update-resort-page',
@@ -8,35 +17,115 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class AddUpdateResortPageComponent implements OnInit {
 
-  constructor() { }
+  resortForm!: FormGroup;
+  facilitiesList: FacilityViewModel[] = [];
+  selectedFacilitiesIds: number[] = [];
+  imageurls: any = [];
+  base64String!: string;
+  name!: string;
+  imagePath!: string; 
+  districts: DistrictViewModel[] = [];
+  locations: LocationViewModel[] = [];
+
+  @Input()
+  resort : ResortViewModel | undefined;
+
+  constructor(private formBuilder: FormBuilder, 
+              private facilityService: FacilityService,
+              private locationService: LocationService,
+              private resortService: ResortService,
+              private router: Router) { }
 
   ngOnInit(): void {
+    console.log(localStorage.getItem('user'));
+    this.resortForm = this.formBuilder.group({
+      'name' : new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
+      'address' : new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
+      'email' : new FormControl(null, [Validators.required, Validators.email, Validators.maxLength(100)]),
+      'price' : new FormControl(null, [Validators.required, Validators.pattern('^[1-9][0-9]+$')]),
+      'capacity' : new FormControl(null, [Validators.required, Validators.pattern('^[1-9][0-9]+$')]),
+      'phone' : new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(30), Validators.pattern('^[0-9]{3,10}$')]),
+      'description' : new FormControl(null, Validators.required),
+      'districtId' : new FormControl(this.resort ? this.resort.districtId : null, Validators.required),
+      'locationId' : new FormControl(null, Validators.required)
+    });
+
+    this.facilityService.getAllFacilities().subscribe(
+      (response) => {
+        this.facilitiesList = response;
+      });
+
+    if(this.resort) {
+      this.selectedFacilitiesIds = this.resort.facilitiesIds;
+      this.locationService.getLocationsByDistrictId(this.resort.districtId).subscribe(
+        (response) => {
+          this.locations = response;
+        });
+    }
+
+    this.locationService.getAllDistricts().subscribe(
+      (response) => {
+        this.districts = response;
+      });
   }
 
-  resortForm: FormGroup = new FormGroup({
-    'name' : new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
-    'address' : new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
-    'email' : new FormControl(null, [Validators.required, Validators.email, Validators.maxLength(100)]),
-    'price' : new FormControl(null, [Validators.required, Validators.pattern('^[1-9][0-9]+$')]),
-    'capacity' : new FormControl(null, [Validators.required, Validators.pattern('^[1-9][0-9]+$')]),
-    'phone' : new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(30), Validators.pattern('^[0-9]{3,10}$')]),
-    'description' : new FormControl(null, Validators.required),
-    'district' : new FormControl(null, Validators.required),
-    'location' : new FormControl(null, Validators.required)
-  });
+  getLocationsByDistrictId(event: any){
+    this.locationService.getLocationsByDistrictId(event.value).subscribe(
+      (response) => {
+        this.locations = response;
+      });
+  }
 
-  districts = ['Chișinău', 'Bălți', 'Briceni', 'Cricova', 'Criuleni', 'Drochia', 'Fălești', 'Giurgiulești', 'Hîncești', 'Ialoveni', 'Nisporeni', 'Rezina', 'Strășeni', 'Telenești'];
-  locations = ['Bucovăț', 'Ciorești', 'Cruzești', 'Dănceni', 'Etulia', 'Fetești', 'Frăsinești', 'Frumoasa', 'Gordinești', 'Gura Bîcului', 'Horești', 'Hulboaca', 'Iurceni', 'Marinici', 'Rassvet'];
-  facilities = ['Wifi', 'BBQ', 'Swimming pool', 'Sauna', 'Soccer field', 'Volleyball field', 'Basketball field', 'Restaurant', 'Fridge', 'TV', 'Billiard room', 'Parking'];
-  
+  onSelectFacility(id: number){
+    if(this.selectedFacilitiesIds.includes(id)) {
+      this.selectedFacilitiesIds.splice(this.selectedFacilitiesIds.indexOf(id), 1);
+    }
+    else {
+      this.selectedFacilitiesIds.push(id);
+    }
+  }
+
+  removeImage(i: number) {
+    this.imageurls.splice(i, 1);
+  }
+
+  onSelectFile(event: any) {
+    if (event.target.files && event.target.files[0]) {
+      var filesAmount = event.target.files.length;
+      for (let i = 0; i < filesAmount; i++) {
+        var reader = new FileReader();
+        reader.onload = (event: any) => {
+          this.imageurls.push( event.target.result );
+        }
+        reader.readAsDataURL(event.target.files[i]);
+      }
+
+      // for (let i = 0; i < event.target.files.length; i++) {
+      //       this.imageurls.push( {base64String: URL.createObjectURL( event.target.files[i]) });
+      // }
+      
+      debugger; 
+    console.log(this.imageurls);
+    if (this.imageurls.length > 0) {
+      localStorage.setItem('imgarray', JSON.stringify(this.imageurls));
+      console.log(JSON.parse(localStorage.getItem('imgarray') ?? ""));
+    }
+    }
+    
+    
+  }
 
   onSubmit() {
     if (this.resortForm.valid) {
-      // this.authService.registerUser(this.registerForm.value)
-      // .subscribe(
-      //   () => { this.router.navigate(['/login'])},
-      //   (error) => {this.validationError = error.error;}
-      // );
+      const newResort: ResortViewModel = this.resortForm.value;
+      newResort.price = Number(newResort.price);
+      newResort.capacity = Number(newResort.capacity);
+      newResort.facilitiesIds = this.selectedFacilitiesIds;
+      newResort.userId = JSON.parse(localStorage.getItem('user') ?? "").id;
+      console.log(newResort);
+      this.resortService.createResort(newResort).subscribe(
+        () => {this.router.navigate(['/user'])}
+      )
     }
   }
 
@@ -149,7 +238,7 @@ export class AddUpdateResortPageComponent implements OnInit {
 
   getDistrictErrorMessage(){
 
-    if (this.resortForm.controls['district'].hasError('required')) {
+    if (this.resortForm.controls['districtId'].hasError('required')) {
       return 'You must enter a value';
     }
 
@@ -158,7 +247,7 @@ export class AddUpdateResortPageComponent implements OnInit {
 
   getLocationErrorMessage(){
 
-    if (this.resortForm.controls['location'].hasError('required')) {
+    if (this.resortForm.controls['locationId'].hasError('required')) {
       return 'You must enter a value';
     }
 

@@ -17,10 +17,12 @@ namespace DiscoverMoldova.Core.Services
     public class ResortService : IResortService
     {
         private readonly IRepository<Resort> _resortRepository;
+        private readonly IRepository<ResortFacility> _resortFacilityRepository;
         private readonly IMapper _mapper;
-        public ResortService(IRepository<Resort> resortRepository, IMapper mapper)
+        public ResortService(IRepository<Resort> resortRepository, IRepository<ResortFacility> resortFacilityRepository, IMapper mapper)
         {
             _resortRepository = resortRepository;
+            _resortFacilityRepository = resortFacilityRepository;
             _mapper = mapper;
         }
 
@@ -28,6 +30,14 @@ namespace DiscoverMoldova.Core.Services
         {
             var resort = _mapper.Map<Resort>(resortDto);
             await _resortRepository.AddAsync(resort);
+
+            var resortFacilityList = resortDto.FacilitiesIds.Select(facilityId => new ResortFacility()
+            {
+                ResortId = resort.Id,
+                FacilityId = facilityId
+            }).ToArray();
+
+            await _resortFacilityRepository.AddRangeAsync(resortFacilityList);
         }
 
         public async Task<ResortDto> GetResortByIdAsync(long id)

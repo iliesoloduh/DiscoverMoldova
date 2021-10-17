@@ -34,6 +34,15 @@ mat-card-content {
     padding-top: 10px;
 }
 
+.facilities {
+    flex-flow: row wrap;
+}
+
+mat-checkbox {
+    width: 155px;
+    padding-right: 10px;
+}
+
 .column {
     padding-top: 10px;
 }
@@ -46,7 +55,41 @@ mat-card-content {
     min-width: 500px;
 }
 
-.button {
+.images-container {
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 8px;
+}
+
+.row2 {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    padding-top: 10px;
+}
+
+.addImages {
+    display: flex;
+    flex-flow: column;
+}
+
+.file-input {
+    display: none;
+}
+
+.removeButton {
+    background-color: #3f51b5;
+    color: white;
+    font-weight: 100;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 1px;
+    margin-top: 3px;
+}
+
+.submitButton {
     display: flex;
     justify-content: flex-end;
 }

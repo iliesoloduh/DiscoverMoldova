@@ -18,7 +18,7 @@
                             <mat-error *ngIf="'resortForm.address.invalid'"> {{ getAddressErrorMessage() }} </mat-error>
                         </mat-form-field>
                     </div>
-                    
+
                     <div class="row">
                         <mat-form-field>
                             <mat-label>Email</mat-label>
@@ -47,21 +47,50 @@
                     <div class="row">
                         <mat-form-field>
                             <mat-label>District</mat-label>
-                            <mat-select formControlName="district">
-                              <mat-option>None</mat-option>
-                              <mat-option *ngFor="let district of districts" [value]="district">{{district}}</mat-option>
+                            <mat-select formControlName="districtId" (selectionChange)="getLocationsByDistrictId($event)">
+                              <!-- <mat-option [value]="0">None</mat-option> -->
+                              <mat-option *ngFor="let district of districts" [value]="district.id">{{district.name}}</mat-option>
                             </mat-select>
-                            <mat-error *ngIf="'resortForm.district.invalid'"> {{ getDistrictErrorMessage() }} </mat-error>
+                            <mat-error *ngIf="'resortForm.districtId.invalid'"> {{ getDistrictErrorMessage() }} </mat-error>
                         </mat-form-field>
                     
                         <mat-form-field>
                             <mat-label>Location</mat-label>
-                            <mat-select formControlName="location">
+                            <mat-select formControlName="locationId">
                               <mat-option>None</mat-option>
-                              <mat-option *ngFor="let location of locations" [value]="location">{{location}}</mat-option>
+                              <mat-option *ngFor="let location of locations" [value]="location.id">{{location.name}}</mat-option>
                             </mat-select>
-                            <mat-error *ngIf="'resortForm.location.invalid'"> {{ getLocationErrorMessage() }} </mat-error>
+                            <mat-error *ngIf="'resortForm.locationId.invalid'"> {{ getLocationErrorMessage() }} </mat-error>
                         </mat-form-field>
+                    </div>
+
+                    <div class="facilities">
+                        <h4>Facilities</h4>
+                        <mat-checkbox *ngFor="let item of facilitiesList" 
+                                    [value]="$any(item.id)" 
+                                    [checked]="selectedFacilitiesIds.includes(item.id)"
+                                    (change)="onSelectFacility(item.id)">
+                                {{item.name}}
+                        </mat-checkbox>
+                    </div>
+
+                    <div class="column">
+                        <div class="addImageButton">
+                            <h4>Add Resort Images</h4>
+                            <input type="file" class="file-input" (change)="onSelectFile($event)" #fileUpload multiple accept="image/*" />
+                            <div class="file-upload">
+                                <button mat-mini-fab class="upload-btn" (click)="fileUpload.click()"> 
+                                    <mat-icon>attach_file</mat-icon>
+                                </button>
+                                <!-- {{ error message }} -->
+                            </div>
+                        </div>
+                        <div class="row2">
+                            <div class="images-container" *ngFor='let url of imageurls; let i = index'>
+                                <img [src]="url" width="150px" height="150px">
+                                <a (click)="removeImage(i)" class="removeButton">Remove</a>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="column">
@@ -71,7 +100,7 @@
                         </mat-form-field>
                     </div>
 
-                    <div class="button">
+                    <div class="submitButton">
                         <button type="submit" mat-raised-button color="primary">Add Resort</button>
                     </div>
                 </form>

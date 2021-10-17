@@ -16,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [],
@@ -37,7 +38,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     ReactiveFormsModule,
     MatIconModule,
     MatSelectModule,
-    MatGridListModule
+    MatGridListModule,
+    MatCheckboxModule
   ],
   exports: [
     CommonModule,
@@ -57,7 +59,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     ReactiveFormsModule,
     MatIconModule,
     MatSelectModule,
-    MatGridListModule
+    MatGridListModule,
+    MatCheckboxModule
   ]
 })
 export class MaterialModule { }

@@ -41,5 +41,7 @@ namespace DiscoverMoldova.Core.Dtos.Resort
 
         [Required]
         public long LocationId { get; set; }
+
+        public long[] FacilitiesIds { get; set; }
     }
 }
